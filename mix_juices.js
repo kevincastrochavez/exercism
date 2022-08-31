@@ -10,7 +10,7 @@
  * @param {string} name
  * @returns {number} time in minutes
  */
-function timeToMixJuice(name) {
+export function timeToMixJuice(name) {
   switch (name) {
     case 'Pure Strawberry Joy':
       return 0.5;
@@ -29,8 +29,6 @@ function timeToMixJuice(name) {
   }
 }
 
-// console.log(timeToMixJuice('Berries & Lime'));
-
 /**
  * Calculates the number of limes that need to be cut
  * to reach a certain supply.
@@ -39,13 +37,12 @@ function timeToMixJuice(name) {
  * @param {string[]} limes
  * @returns {number} number of limes cut
  */
-function limesToCut(wedgesNeeded, limes) {
+export function limesToCut(wedgesNeeded, limes) {
   let counter = 0;
   let totalWedges = 0;
+  let wedges = 0;
 
-  while (totalWedges < wedgesNeeded) {
-    let wedges;
-
+  while (totalWedges < wedgesNeeded && limes.length != 0) {
     const limeItem = limes.shift();
 
     switch (limeItem) {
@@ -58,13 +55,12 @@ function limesToCut(wedgesNeeded, limes) {
       case 'large':
         wedges = 10;
         break;
-      default:
-        break;
     }
 
-    for (let index = 0; index < wedges; index++) {
-      if (totalWedges < wedgesNeeded) totalWedges++;
-    }
+    // for (let index = 0; index < wedges; index++) {
+    //   if (totalWedges < wedgesNeeded) totalWedges++;
+    // }
+    totalWedges += wedges;
 
     counter++;
     console.log(totalWedges);
@@ -73,20 +69,6 @@ function limesToCut(wedgesNeeded, limes) {
   return counter;
 }
 
-console.log(
-  limesToCut(42, [
-    'small',
-    'large',
-    'large',
-    'medium',
-    'small',
-    'large',
-    'large',
-    'medium',
-  ])
-);
-// console.log(limesToCut(25, ['small', 'small', 'large', 'medium', 'small']));
-
 /**
  * Determines which juices still need to be prepared after the end of the shift.
  *
@@ -94,7 +76,7 @@ console.log(
  * @param {string[]} orders
  * @returns {string[]} remaining orders after the time is up
  */
-function remainingOrders(timeLeft, orders) {
+export function remainingOrders(timeLeft, orders) {
   let drink = 0;
 
   while (drink < timeLeft) {
@@ -124,7 +106,3 @@ function remainingOrders(timeLeft, orders) {
 
   return orders;
 }
-
-// console.log(
-//   remainingOrders(5, ['Energizer', 'All or Nothing', 'Green Garden'])
-// );
