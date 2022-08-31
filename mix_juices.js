@@ -51,11 +51,9 @@ function limesToCut(wedgesNeeded, limes) {
     switch (limeItem) {
       case 'small':
         wedges = 6;
-        // console.log(wedges);
         break;
       case 'medium':
         wedges = 8;
-        // console.log(wedges);
         break;
       case 'large':
         wedges = 10;
@@ -69,6 +67,7 @@ function limesToCut(wedgesNeeded, limes) {
     }
 
     counter++;
+    console.log(totalWedges);
   }
 
   return counter;
