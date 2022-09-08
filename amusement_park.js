@@ -49,7 +49,6 @@ function ticketStatus(tickets, ticketId) {
   let response = '';
 
   for (const key in tickets) {
-    console.log(tickets[ticketId]);
     if (tickets[ticketId] === undefined) {
       response = 'unknown ticket id';
     }
@@ -92,10 +91,10 @@ function simpleTicketStatus(tickets, ticketId) {
   let response = '';
 
   for (const key in tickets) {
-    if (tickets[ticketId] !== null || tickets[ticketId] !== undefined) {
-      response = tickets[key];
-    } else {
+    if (tickets[ticketId] === null || tickets[ticketId] === undefined) {
       response = 'invalid ticket !!!';
+    } else {
+      response = tickets[key];
     }
   }
 
