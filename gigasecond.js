@@ -4,10 +4,11 @@
 //
 
 const gigasecond = () => {
-  const time = new Date().getTime() * 1000;
+  const gigasecond =
+    new Date(Date.UTC(2011, 3, 25)).getTime() + 3600 * 6 * 1000;
+  const newDate = new Date(gigasecond + 1000000000000);
 
-  const result = new Date(time + 1000000000);
-  return result;
+  return newDate;
 };
 
 gigasecond();
