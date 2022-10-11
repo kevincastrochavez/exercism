@@ -6,13 +6,13 @@
  * @param {string} ticketId
  * @returns {Visitor} the visitor that was created
  */
-function createVisitor(name, age, ticketId) {
-  return {
-    name: name,
-    age: age,
-    ticketId: ticketId,
-  };
-}
+// function createVisitor(name, age, ticketId) {
+//   return {
+//     name: name,
+//     age: age,
+//     ticketId: ticketId,
+//   };
+// }
 
 // console.log(createVisitor('Verena Nardi', 45, 'H32AZ123'));
 // => { name: 'Verena Nardi', age: 45, ticketId: 'H32AZ123' }
@@ -23,17 +23,17 @@ function createVisitor(name, age, ticketId) {
  * @param {Visitor} visitor the visitor with an active ticket
  * @returns {Visitor} the visitor without a ticket
  */
-function revokeTicket(visitor) {
-  visitor.ticketId = null;
+// function revokeTicket(visitor) {
+//   visitor.ticketId = null;
 
-  return visitor;
-}
+//   return visitor;
+// }
 
-const visitor = {
-  name: 'Verena Nardi',
-  age: 45,
-  ticketId: 'H32AZ123',
-};
+// const visitor = {
+//   name: 'Verena Nardi',
+//   age: 45,
+//   ticketId: 'H32AZ123',
+// };
 
 // console.log(revokeTicket(visitor));
 // => { name: 'Verena Nardi', age: 45, ticketId: null }
@@ -53,24 +53,28 @@ function ticketStatus(tickets, ticketId) {
       response = 'unknown ticket id';
     }
 
-    if (tickets[ticketId] === null) {
-      response = 'not sold';
-    }
-
     if (tickets[ticketId] === tickets[key]) {
       response = `sold to ${tickets[key]}`;
+    }
+
+    if (tickets[ticketId] === null) {
+      response = 'not sold';
     }
   }
 
   return response;
 }
 
-// const tickets = {
-//   '0H2AZ123': null,
-//   '23LA9T41': 'Verena Nardi',
-// };
+const tickets = {
+  '0H2AZ123': null,
+  '23LA9T41': 'Verena Nardi',
+  QINS6S94: 'Hong Hsu',
+  V42NWRMQ: null,
+};
 
-// console.log(ticketStatus(tickets, 'RE90VAW7'));
+console.log(ticketStatus(tickets, 'V42NWRMQ'));
+// console.log(ticketStatus(tickets, 'A56MTX8E'));
+// console.log(ticketStatus(tickets, 'QINS6S94'));
 // // => 'unknown ticket id'
 
 // console.log(ticketStatus(tickets, '0H2AZ123'));
@@ -83,36 +87,36 @@ function ticketStatus(tickets, ticketId) {
  * Determines the status a ticket has in the ticket tracking object
  * and returns a simplified status message.
  *
- * @param {Record<string, string|null>} tickets
- * @param {string} ticketId
- * @returns {string} ticket status
- */
-function simpleTicketStatus(tickets, ticketId) {
-  let response = '';
+//  * @param {Record<string, string|null>} tickets
+//  * @param {string} ticketId
+//  * @returns {string} ticket status
+//  */
+// function simpleTicketStatus(tickets, ticketId) {
+//   let response = '';
 
-  for (const key in tickets) {
-    if (tickets[ticketId] === null || tickets[ticketId] === undefined) {
-      response = 'invalid ticket !!!';
-    } else {
-      response = tickets[key];
-    }
-  }
+//   for (const key in tickets) {
+//     if (tickets[ticketId] === null || tickets[ticketId] === undefined) {
+//       response = 'invalid ticket !!!';
+//     } else {
+//       response = tickets[key];
+//     }
+//   }
 
-  return response;
-}
+//   return response;
+// }
 
-const tickets = {
-  '0H2AZ123': null,
-  '23LA9T41': 'Verena Nardi',
-};
+// const tickets = {
+//   '0H2AZ123': null,
+//   '23LA9T41': 'Verena Nardi',
+// };
 
-console.log(simpleTicketStatus(tickets, '23LA9T41'));
-// => 'Verena Nardi'
+// console.log(simpleTicketStatus(tickets, '23LA9T41'));
+// // => 'Verena Nardi'
 
-console.log(simpleTicketStatus(tickets, '0H2AZ123'));
-// => 'invalid ticket !!!'
+// console.log(simpleTicketStatus(tickets, '0H2AZ123'));
+// // => 'invalid ticket !!!'
 
-console.log(simpleTicketStatus(tickets, 'RE90VAW7'));
+// console.log(simpleTicketStatus(tickets, 'RE90VAW7'));
 // => 'invalid ticket !!!'
 
 /**
@@ -121,13 +125,13 @@ console.log(simpleTicketStatus(tickets, 'RE90VAW7'));
  * @param {VisitorWithGtc} visitor
  * @returns {string | undefined} version
  */
-function gtcVersion(visitor) {
-  for (const key in visitor) {
-    if (key == 'gtc') {
-      return visitor.gtc['version'];
-    }
-  }
-}
+// function gtcVersion(visitor) {
+//   for (const key in visitor) {
+//     if (key == 'gtc') {
+//       return visitor.gtc['version'];
+//     }
+//   }
+// }
 
 // const visitorNew = {
 //   name: 'Verena Nardi',
