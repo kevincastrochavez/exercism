@@ -45,34 +45,34 @@
  * @param {string} ticketId
  * @returns {string} ticket status
  */
-function ticketStatus(tickets, ticketId) {
-  let response = '';
+// function ticketStatus(tickets, ticketId) {
+//   let response = '';
 
-  for (const key in tickets) {
-    if (tickets[ticketId] === undefined) {
-      response = 'unknown ticket id';
-    }
+//   for (const key in tickets) {
+//     if (tickets[ticketId] === undefined) {
+//       response = 'unknown ticket id';
+//     }
 
-    if (tickets[ticketId] === tickets[key]) {
-      response = `sold to ${tickets[key]}`;
-    }
+//     if (tickets[ticketId] === tickets[key]) {
+//       response = `sold to ${tickets[key]}`;
+//     }
 
-    if (tickets[ticketId] === null) {
-      response = 'not sold';
-    }
-  }
+//     if (tickets[ticketId] === null) {
+//       response = 'not sold';
+//     }
+//   }
 
-  return response;
-}
+//   return response;
+// }
 
-const tickets = {
-  '0H2AZ123': null,
-  '23LA9T41': 'Verena Nardi',
-  QINS6S94: 'Hong Hsu',
-  V42NWRMQ: null,
-};
+// const tickets = {
+//   '0H2AZ123': null,
+//   '23LA9T41': 'Verena Nardi',
+//   QINS6S94: 'Hong Hsu',
+//   V42NWRMQ: null,
+// };
 
-console.log(ticketStatus(tickets, 'V42NWRMQ'));
+// console.log(ticketStatus(tickets, 'V42NWRMQ'));
 // console.log(ticketStatus(tickets, 'A56MTX8E'));
 // console.log(ticketStatus(tickets, 'QINS6S94'));
 // // => 'unknown ticket id'
@@ -91,27 +91,28 @@ console.log(ticketStatus(tickets, 'V42NWRMQ'));
 //  * @param {string} ticketId
 //  * @returns {string} ticket status
 //  */
-// function simpleTicketStatus(tickets, ticketId) {
-//   let response = '';
+function simpleTicketStatus(tickets, ticketId) {
+  let response = '';
 
-//   for (const key in tickets) {
-//     if (tickets[ticketId] === null || tickets[ticketId] === undefined) {
-//       response = 'invalid ticket !!!';
-//     } else {
-//       response = tickets[key];
-//     }
-//   }
+  for (const key in tickets) {
+    console.log(tickets[ticketId]);
+    if (tickets[ticketId] === null || tickets[ticketId] === undefined) {
+      response = 'invalid ticket !!!';
+    } else {
+      response = tickets[ticketId];
+    }
+  }
 
-//   return response;
-// }
+  return response;
+}
 
-// const tickets = {
-//   '0H2AZ123': null,
-//   '23LA9T41': 'Verena Nardi',
-// };
+const tickets = {
+  '0H2AZ123': null,
+  QINS6S94: 'Hong Hsu',
+};
 
-// console.log(simpleTicketStatus(tickets, '23LA9T41'));
-// // => 'Verena Nardi'
+console.log(simpleTicketStatus(tickets, 'QINS6S94'));
+// => 'Verena Nardi'
 
 // console.log(simpleTicketStatus(tickets, '0H2AZ123'));
 // // => 'invalid ticket !!!'
