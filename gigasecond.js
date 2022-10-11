@@ -5,7 +5,9 @@
 
 const gigasecond = () => {
   const time = new Date().getTime() * 1000;
-  return time + 1000000000;
+
+  const result = new Date(time + 1000000000);
+  return result;
 };
 
 gigasecond();
